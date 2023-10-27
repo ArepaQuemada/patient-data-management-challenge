@@ -1,4 +1,7 @@
+import React from "react";
 import { PatientDTO } from "../../../dto/patient";
+import PatientCard from "../../common/patient-card/PatientCard";
+import "./index.css";
 
 type PatientsListProps = {
   patients: PatientDTO | null;
@@ -6,13 +9,18 @@ type PatientsListProps = {
 
 const PatientsList = ({ patients }: PatientsListProps) => {
   return (
-    <>
+    <section className="p-4 patient-list gap-16">
       {patients?.map((patient) => (
-        <div key={patient.id}>
-          <p>{patient.name}</p>
-        </div>
+        <React.Fragment key={patient.id}>
+          <PatientCard
+            avatar={patient.avatar}
+            description={patient.description}
+            name={patient.name}
+            website={patient.website}
+          />
+        </React.Fragment>
       ))}
-    </>
+    </section>
   );
 };
 
