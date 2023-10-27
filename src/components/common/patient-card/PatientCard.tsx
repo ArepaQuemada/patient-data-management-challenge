@@ -14,7 +14,7 @@ const PatientCard: React.FC<Props> = ({
   website,
 }) => {
   return (
-    <div className="bg-slate-200 rounded-lg p-1 max-w-[20rem] relative ">
+    <div className="bg-slate-100 rounded-lg p-1 max-w-[20rem] relative card-container__shadow ">
       <img
         className="w-14 h-14 object-cover absolute left-0 right-0 -top-5 m-auto card-container--image__border p-1"
         src={avatar}
