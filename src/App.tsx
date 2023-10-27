@@ -1,5 +1,7 @@
+import PatientsContainer from "./components/container/patients/PatientsContainer";
+
 function App() {
-  return <div className="text-red-900">Hello</div>;
+  return <PatientsContainer />;
 }
 
 export default App;
