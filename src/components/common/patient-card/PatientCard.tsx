@@ -21,10 +21,10 @@ const PatientCard: React.FC<Props> = ({ patient, onClickEdit }) => {
       </div>
       <div className="mt-8">
         <p className="text-gray-700 text-base">{patient.description}</p>
-        <div className="flex  items-center justify-between">
+        <div className="flex  items-center justify-around mt-4">
           <a
             href={patient.website}
-            className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-all ease-in-out duration-300"
+            className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-all ease-in-out duration-300"
           >
             Website
           </a>
