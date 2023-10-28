@@ -1,25 +1,19 @@
 import React from "react";
 import "./index.css";
-import { PatientDTO } from "@src/dto/patient";
 import PatientCard from "@src/components/common/patient-card/PatientCard";
-import { useModalsStore } from "@src/hooks/store/modals/useModalsStore";
+import { Patient } from "@src/models/patient";
 
 type PatientsListProps = {
-  patients: PatientDTO | null;
+  patients: Patient[] | null;
+  onClickEdit: (patient: Patient) => void;
 };
 
-const PatientsList = ({ patients }: PatientsListProps) => {
-  const { setStateEditModal } = useModalsStore();
+const PatientsList = ({ patients, onClickEdit }: PatientsListProps) => {
   return (
     <section className="mt-16 patient-list gap-16 place-items-center">
       {patients?.map((patient) => (
         <React.Fragment key={patient.id}>
-          <PatientCard
-            patient={patient}
-            onClickEdit={() => {
-              setStateEditModal(true);
-            }}
-          />
+          <PatientCard patient={patient} onClickEdit={onClickEdit} />
         </React.Fragment>
       ))}
     </section>

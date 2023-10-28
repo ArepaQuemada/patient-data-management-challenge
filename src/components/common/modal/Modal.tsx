@@ -12,7 +12,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
     : "hidden";
 
   return (
-    <div className={modalStyles}>
+    <div className={`${modalStyles} overflow-auto`}>
       <div
         className="fixed inset-0 bg-gray-900 opacity-70"
         onClick={onClose}

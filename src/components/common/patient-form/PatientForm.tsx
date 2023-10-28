@@ -6,12 +6,12 @@ type FormData = {
   name: string;
   description: string;
   website: string;
-  avatar: File | null;
+  avatar: File | null | string;
 };
 
 interface PatientFormProps {
   onSubmit: (formData: Patient) => void;
-  defaultFields?: FormData & Patient;
+  defaultFields: Patient | null;
 }
 
 export const PatientForm = ({ onSubmit, defaultFields }: PatientFormProps) => {
@@ -35,8 +35,7 @@ export const PatientForm = ({ onSubmit, defaultFields }: PatientFormProps) => {
     const reader = new FileReader();
     if (event.target.files && event.target.files[0]) {
       reader.readAsDataURL(event.target.files[0]);
-      reader.onload = (e) => {
-        console.log(e.target?.result);
+      reader.onload = () => {
         setFormData((prev) => ({
           ...prev,
           avatar: event.target.files ? event.target.files[0] : null,
@@ -47,12 +46,13 @@ export const PatientForm = ({ onSubmit, defaultFields }: PatientFormProps) => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
+    let avatar;
+    if (formData.avatar instanceof File) {
+      avatar = URL.createObjectURL(formData.avatar);
+    }
     onSubmit({
       ...formData,
-      avatar: formData.avatar
-        ? URL.createObjectURL(formData.avatar)
-        : defaultAvatar,
+      avatar: avatar || defaultAvatar,
       createdAt: defaultFields?.createdAt ?? new Date().toDateString(),
       id: defaultFields?.id ?? `${crypto.randomUUID()}`,
     });

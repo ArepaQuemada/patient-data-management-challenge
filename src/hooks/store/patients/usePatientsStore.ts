@@ -9,6 +9,7 @@ import { Patient } from "@src/models/patient";
 
 export const usePatientsStore = () => {
   const patients = useAppSelector((state) => state.patients.patients);
+
   const dispatch = useAppDispatch();
 
   const setPatients = useCallback(

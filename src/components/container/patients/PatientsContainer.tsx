@@ -1,11 +1,18 @@
 import PatientsList from "@src/components/presentation/patients/PatientsList";
 import { useGetPatients } from "@src/hooks/services/useGetPatients";
 import { usePatientsStore } from "@src/hooks/store/patients/usePatientsStore";
+import { Patient } from "@src/models/patient";
 import { useEffect } from "react";
+import { useModalsStore } from "@src/hooks/store/modals/useModalsStore";
+import { useEditPatientStore } from "@src/hooks/store/edit-patient/useEditPatientStore";
+import CreatePatientContainer from "../create-patient/CreatePatientContainer";
+import EditPatientContainer from "../edit-patient/EditPatientContainer";
 
 const PatientsContainer = () => {
   const { data, getPatients, loading } = useGetPatients();
   const { patients, setPatients } = usePatientsStore();
+  const { modals, setStateEditModal } = useModalsStore();
+  const { setPatientToEdit } = useEditPatientStore();
 
   useEffect(() => {
     if (data) {
@@ -21,6 +28,11 @@ const PatientsContainer = () => {
     };
   }, [getPatients]);
 
+  const onClickEdit = (patient: Patient) => {
+    setPatientToEdit(patient);
+    setStateEditModal(true);
+  };
+
   if (loading)
     return (
       <div>
@@ -29,7 +41,9 @@ const PatientsContainer = () => {
     );
   return (
     <>
-      <PatientsList patients={patients} />;
+      <PatientsList patients={patients} onClickEdit={onClickEdit} />;{}
+      {modals.isCreateModalOpen && <CreatePatientContainer />}
+      {modals.isEditModalOpen && <EditPatientContainer />}
     </>
   );
 };
