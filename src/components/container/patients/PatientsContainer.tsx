@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useGetPatients } from "../../../hooks/services/useGetPatients";
 import PatientsList from "../../presentation/patients/PatientsList";
+import CreatePatientContainer from "../create-patient/CreatePatientContainer";
 
 const PatientsContainer = () => {
   const { data, getPatients, loading } = useGetPatients();
@@ -14,7 +15,12 @@ const PatientsContainer = () => {
   }, [getPatients]);
 
   if (loading) return <>Loading...</>;
-  return <PatientsList patients={data} />;
+  return (
+    <>
+      <CreatePatientContainer />
+      <PatientsList patients={data} />;
+    </>
+  );
 };
 
 export default PatientsContainer;
