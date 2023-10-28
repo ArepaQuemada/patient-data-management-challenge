@@ -1,4 +1,4 @@
-import { PatientForm } from "@src/components/common/patient-form/PatientForm";
+import CreatePatientForm from "@src/components/presentation/create-patient/CreatePatientForm";
 import { usePatientsStore } from "@src/hooks/store/patients/usePatientsStore";
 import { Patient } from "@src/models/patient";
 
@@ -8,7 +8,9 @@ const CreatePatientContainer = () => {
   const handleSubmit = (formData: Patient) => {
     add(formData);
   };
-  return <PatientForm onSubmit={handleSubmit} />;
+  return (
+    <CreatePatientForm isOpen onClose={() => {}} onSubmit={handleSubmit} />
+  );
 };
 
 export default CreatePatientContainer;
