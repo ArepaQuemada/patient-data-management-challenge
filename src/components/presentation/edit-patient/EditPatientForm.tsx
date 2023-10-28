@@ -2,17 +2,17 @@ import Modal from "@src/components/common/modal/Modal";
 import { PatientForm } from "@src/components/common/patient-form/PatientForm";
 import { ComponentProps } from "react";
 
-interface CreatePatientFormProps {
+interface EditPatientFormProps {
   isOpen: boolean;
   onClose: () => void;
   createPatientFormProps: ComponentProps<typeof PatientForm>;
 }
 
-const CreatePatientForm = ({
+const EditPatientForm = ({
   isOpen,
   onClose,
   createPatientFormProps,
-}: CreatePatientFormProps) => {
+}: EditPatientFormProps) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <PatientForm
@@ -22,4 +22,4 @@ const CreatePatientForm = ({
     </Modal>
   );
 };
-export default CreatePatientForm;
+export default EditPatientForm;

@@ -2,7 +2,6 @@ import PatientsList from "@src/components/presentation/patients/PatientsList";
 import { useGetPatients } from "@src/hooks/services/useGetPatients";
 import { usePatientsStore } from "@src/hooks/store/patients/usePatientsStore";
 import { useEffect } from "react";
-import CreatePatientContainer from "../create-patient/CreatePatientContainer";
 
 const PatientsContainer = () => {
   const { data, getPatients, loading } = useGetPatients();
@@ -30,7 +29,6 @@ const PatientsContainer = () => {
     );
   return (
     <>
-      <CreatePatientContainer />
       <PatientsList patients={patients} />;
     </>
   );
