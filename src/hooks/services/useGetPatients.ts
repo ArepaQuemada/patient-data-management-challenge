@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 import { PatientDTO } from "../../dto/patient";
-import HttpService from "../../infra/http-service";
+import HttpService from "../../infra/http/http-service";
 import { ENDPOINTS, HOSTS } from "../../config/api";
 
 type HttpState<T = null> = {
