@@ -11,7 +11,7 @@ type FormData = {
 
 interface PatientFormProps {
   onSubmit: (formData: Patient) => void;
-  defaultFields: Patient | null;
+  defaultFields?: Patient | null;
 }
 
 export const PatientForm = ({ onSubmit, defaultFields }: PatientFormProps) => {
