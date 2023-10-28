@@ -1,7 +1,7 @@
+import { HOSTS, ENDPOINTS } from "@src/config/api";
+import { PatientDTO } from "@src/dto/patient";
+import HttpService from "@src/infra/http/http-service";
 import { useCallback, useState } from "react";
-import { PatientDTO } from "../../dto/patient";
-import HttpService from "../../infra/http/http-service";
-import { ENDPOINTS, HOSTS } from "../../config/api";
 
 type HttpState<T = null> = {
   data: T | null;

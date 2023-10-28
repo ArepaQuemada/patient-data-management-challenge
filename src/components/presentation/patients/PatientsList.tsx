@@ -1,7 +1,7 @@
 import React from "react";
-import { PatientDTO } from "../../../dto/patient";
-import PatientCard from "../../common/patient-card/PatientCard";
 import "./index.css";
+import { PatientDTO } from "@src/dto/patient";
+import PatientCard from "@src/components/common/patient-card/PatientCard";
 
 type PatientsListProps = {
   patients: PatientDTO | null;

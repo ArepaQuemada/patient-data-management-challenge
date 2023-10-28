@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Patient } from "../../../models/patient";
-import defaultAvatar from "../../../assets/user-plus-alt-1-svgrepo-com.svg";
+import defaultAvatar from "@src/assets/user-svgrepo-com.svg";
+import { Patient } from "@src/models/patient";
 
 type FormData = {
   name: string;

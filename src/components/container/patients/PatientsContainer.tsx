@@ -1,8 +1,8 @@
+import PatientsList from "@src/components/presentation/patients/PatientsList";
+import { useGetPatients } from "@src/hooks/services/useGetPatients";
+import { usePatientsStore } from "@src/hooks/store/patients/usePatientsStore";
 import { useEffect } from "react";
-import { useGetPatients } from "../../../hooks/services/useGetPatients";
-import PatientsList from "../../presentation/patients/PatientsList";
 import CreatePatientContainer from "../create-patient/CreatePatientContainer";
-import { usePatientsStore } from "../../../hooks/store/patients/usePatientsStore";
 
 const PatientsContainer = () => {
   const { data, getPatients, loading } = useGetPatients();

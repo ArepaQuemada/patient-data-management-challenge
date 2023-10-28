@@ -3,9 +3,9 @@ import {
   add as addStore,
   edit as editStore,
   setPatients as setPatientsStore,
-} from "../../../infra/store/patients/patientsSlice";
+} from "@src/infra/store/patients/patientsSlice";
 import { useCallback } from "react";
-import { Patient } from "../../../models/patient";
+import { Patient } from "@src/models/patient";
 
 export const usePatientsStore = () => {
   const patients = useAppSelector((state) => state.patients.patients);
