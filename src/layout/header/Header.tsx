@@ -2,8 +2,10 @@ import hospitalIcon from "../../assets/hospital-user-svgrepo-com.svg";
 import Button from "../../components/common/button/Button";
 import avatar from "../../assets/user-plus-alt-1-svgrepo-com.svg";
 import "./index.css";
+import { useModalsStore } from "@src/hooks/store/modals/useModalsStore";
 
 const Header = () => {
+  const { setStateCreateModal } = useModalsStore();
   return (
     <header className="flex p-4 gap-4 sm:px-10">
       <img
@@ -18,12 +20,24 @@ const Header = () => {
         </span>
       </h2>
       <div className="hidden xs:block">
-        <Button color="secondary" icon={<img src={avatar} />}>
+        <Button
+          color="secondary"
+          onClick={() => {
+            setStateCreateModal(true);
+          }}
+          icon={<img src={avatar} />}
+        >
           Crear paciente
         </Button>
       </div>
       <div className="block xs:hidden">
-        <Button color="secondary" icon={<img src={avatar} />} />
+        <Button
+          color="secondary"
+          icon={<img src={avatar} />}
+          onClick={() => {
+            setStateCreateModal(true);
+          }}
+        />
       </div>
     </header>
   );

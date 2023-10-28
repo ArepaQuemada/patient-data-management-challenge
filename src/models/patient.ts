@@ -1,5 +1,5 @@
 export interface Patient {
-  createdA: Date;
+  createdAt: string;
   name: string;
   avatar: string;
   description: string;
