@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import patientsReducer from "./patients/patientsSlice";
+import modalsReducer from "./modals/modalsSlice";
 
 export const store = configureStore({
   reducer: {
     patients: patientsReducer,
+    modals: modalsReducer,
   },
 });
 

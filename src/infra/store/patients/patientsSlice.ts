@@ -11,7 +11,7 @@ const initialState: PatientsState = {
 };
 
 export const patientsSlice = createSlice({
-  name: "counter",
+  name: "patients",
   initialState,
   reducers: {
     setPatients: (state, action: PayloadAction<Patient[]>) => {
