@@ -1,4 +1,10 @@
+.card-container__shadow {
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.38);
+  -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.38);
+  -moz-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.38);
+}
+
 .card-container--image__border {
   border-radius: 50%;
-  border: 3px solid blue;
+  border: 3px solid rgb(59 130 246 / var(--tw-bg-opacity));
 }

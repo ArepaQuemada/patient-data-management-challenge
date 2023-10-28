@@ -9,7 +9,7 @@ type PatientsListProps = {
 
 const PatientsList = ({ patients }: PatientsListProps) => {
   return (
-    <section className="p-4 patient-list gap-16">
+    <section className="mt-16 patient-list gap-16 place-items-center">
       {patients?.map((patient) => (
         <React.Fragment key={patient.id}>
           <PatientCard
