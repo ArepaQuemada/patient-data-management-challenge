@@ -1,15 +1,17 @@
 import { useState } from "react";
+import { Patient } from "../../../models/patient";
+import defaultAvatar from "../../../assets/user-plus-alt-1-svgrepo-com.svg";
 
 type FormData = {
   name: string;
   description: string;
   website: string;
-  image: File | null;
+  avatar: File | null;
 };
 
 interface PatientFormProps {
-  onSubmit: (formData: FormData) => void;
-  defaultFields?: FormData;
+  onSubmit: (formData: Patient) => void;
+  defaultFields?: FormData & Patient;
 }
 
 export const PatientForm = ({ onSubmit, defaultFields }: PatientFormProps) => {
@@ -17,7 +19,7 @@ export const PatientForm = ({ onSubmit, defaultFields }: PatientFormProps) => {
     name: defaultFields?.name || "",
     description: defaultFields?.description || "",
     website: defaultFields?.website || "",
-    image: defaultFields?.image || null,
+    avatar: defaultFields?.avatar || null,
   });
 
   const handleChange = (
@@ -37,7 +39,7 @@ export const PatientForm = ({ onSubmit, defaultFields }: PatientFormProps) => {
         console.log(e.target?.result);
         setFormData((prev) => ({
           ...prev,
-          image: event.target.files ? event.target.files[0] : null,
+          avatar: event.target.files ? event.target.files[0] : null,
         }));
       };
     }
@@ -45,10 +47,16 @@ export const PatientForm = ({ onSubmit, defaultFields }: PatientFormProps) => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    onSubmit(formData);
-  };
 
-  console.log(formData.image);
+    onSubmit({
+      ...formData,
+      avatar: formData.avatar
+        ? URL.createObjectURL(formData.avatar)
+        : defaultAvatar,
+      createdAt: defaultFields?.createdAt ?? new Date().toDateString(),
+      id: defaultFields?.id ?? `${crypto.randomUUID()}`,
+    });
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -97,9 +105,9 @@ export const PatientForm = ({ onSubmit, defaultFields }: PatientFormProps) => {
         <label htmlFor="image" className="block text-gray-700 font-bold mb-2">
           Image
         </label>
-        {formData.image && formData.image instanceof File && (
+        {formData.avatar && formData.avatar instanceof File && (
           <img
-            src={URL.createObjectURL(formData.image)}
+            src={URL.createObjectURL(formData.avatar)}
             alt="Patient"
             className="mb-4"
           />
