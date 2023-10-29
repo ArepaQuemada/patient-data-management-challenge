@@ -33,9 +33,11 @@ const PatientsContainer = () => {
     setStateEditModal(true);
   };
 
+  console.log(loading);
+
   if (loading)
     return (
-      <div>
+      <div className="bg-red-800">
         <div>Loading</div>
       </div>
     );

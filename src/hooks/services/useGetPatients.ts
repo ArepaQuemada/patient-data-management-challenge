@@ -19,6 +19,7 @@ export const useGetPatients = () => {
   const [httpState, setHttpState] =
     useState<HttpState<PatientDTO>>(initialState);
 
+  // TODO: Esto podria ser su propip ejem useFetch o useHttpRequest
   const getPatients = useCallback(
     async (signal?: AbortController["signal"]) => {
       const httpService = new HttpService(signal);
