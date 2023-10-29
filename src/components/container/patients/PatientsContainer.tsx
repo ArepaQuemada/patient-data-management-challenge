@@ -41,7 +41,7 @@ const PatientsContainer = () => {
     );
   return (
     <>
-      <PatientsList patients={patients} onClickEdit={onClickEdit} />;{}
+      <PatientsList patients={patients} onClickEdit={onClickEdit} />
       {modals.isCreateModalOpen && <CreatePatientContainer />}
       {modals.isEditModalOpen && <EditPatientContainer />}
     </>
