@@ -25,14 +25,17 @@ export const useGetPatients = () => {
       const httpService = new HttpService(signal);
       setHttpState({ ...initialState, loading: true });
       try {
-        const response = await httpService.get<PatientDTO>(
-          `${HOSTS.API_PATIENTS}${ENDPOINTS.PATIENTS}`
-        );
-        setHttpState({
-          data: response,
-          loading: false,
-          error: false,
-        });
+        setTimeout(async () => {
+          const response = await httpService.get<PatientDTO>(
+            `${HOSTS.API_PATIENTS}${ENDPOINTS.PATIENTS}`
+          );
+          setHttpState({
+            data: response,
+            loading: false,
+            error: false,
+          });
+        }, Math.random() * 5);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (err) {
         setHttpState({ data: null, error: true, loading: false });
       }
