@@ -46,13 +46,13 @@ export const PatientForm = ({ onSubmit, defaultFields }: PatientFormProps) => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    let avatar;
+    let avatar = formData.avatar;
     if (formData.avatar instanceof File) {
       avatar = URL.createObjectURL(formData.avatar);
     }
     onSubmit({
       ...formData,
-      avatar: avatar || defaultAvatar,
+      avatar: (avatar || defaultAvatar) as string,
       createdAt: defaultFields?.createdAt ?? new Date().toDateString(),
       id: defaultFields?.id ?? `${crypto.randomUUID()}`,
     });
