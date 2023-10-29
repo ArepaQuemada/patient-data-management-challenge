@@ -21,18 +21,18 @@ type ColorClasses = {
 const colorClasses: ColorClasses = {
   primary: {
     main: {
-      base: "bg-blue-500",
-      hover: "hover:bg-blue-700",
+      base: "bg-blue-500 text-white",
+      hover: "hover:bg-blue-700 text-white",
     },
     accent: {
-      base: "bg-transparent text-blue-600",
+      base: "bg- text-blue",
       hover: "bg-transparent text-blue-700",
     },
   },
   secondary: {
     main: {
-      base: "bg-red-500",
-      hover: "hover:bg-red-700",
+      base: "bg-red-500 text-white",
+      hover: "hover:bg-red-700 text-white",
     },
     accent: {
       base: "bg-transparent text-red-500",
@@ -51,7 +51,7 @@ const Button = ({
   const { base, hover } = colorClasses[color][variant];
   return (
     <button
-      className={`t-4 ${base} ${hover} text-white font-bold py-2 px-4 rounded transition-all ease-in-out duration-300 inline-block items-center gap-1`}
+      className={`t-4 ${base} ${hover} font-bold py-2 px-4 rounded transition-all ease-in-out duration-300 inline-block items-center gap-1`}
       {...rest}
     >
       <div className="flex gap-1 items-center">
