@@ -109,7 +109,7 @@ export const PatientForm = ({ onSubmit, defaultFields }: PatientFormProps) => {
           <img
             src={URL.createObjectURL(formData.avatar)}
             alt="Patient"
-            className="mb-4"
+            className="mb-4 h-12 w-12 md:h-24 md:w-24"
           />
         )}
         <input
