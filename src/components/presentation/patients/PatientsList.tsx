@@ -12,10 +12,10 @@ type PatientsListProps = {
 
 const PatientsList = ({ patients, onClickEdit }: PatientsListProps) => {
   return (
-    <section className="mt-16 patient-list gap-4 place-items-center xl:max-w-[1280px] justify-center m-auto">
+    <section className="mt-8 patient-list gap-4 place-items-center xl:max-w-[1280px] justify-center m-auto">
       {patients?.map((patient) => (
         <React.Fragment key={patient.id}>
-          <div className="patient-list--card__animation">
+          <div className="patient-list--card__animation w-full">
             <PatientCard patient={patient} onClickEdit={onClickEdit} />
           </div>
         </React.Fragment>

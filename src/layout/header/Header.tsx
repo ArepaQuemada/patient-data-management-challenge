@@ -6,8 +6,11 @@ import { useModalsStore } from "@src/hooks/store/modals/useModalsStore";
 
 const Header = () => {
   const { setStateCreateModal } = useModalsStore();
+
   return (
-    <header className="flex p-4 gap-4 sm:px-10">
+    <header
+      className={`bg-white flex p-4 gap-4 sm:px-10 fixed top-0 z-10 w-full overflow-hidden`}
+    >
       <img
         className="w-7 h-7 md:w-9 md:h-9 mt-1"
         src={hospitalIcon}
