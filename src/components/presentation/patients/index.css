@@ -1,4 +1,24 @@
 .patient-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  opacity: 0;
+  animation-name: left-to-right;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.patient-list--card__animation {
+  animation-name: left-to-right;
+  animation-duration: 0.5s;
+}
+
+@keyframes left-to-right {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

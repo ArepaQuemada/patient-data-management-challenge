@@ -7,6 +7,7 @@ import { useModalsStore } from "@src/hooks/store/modals/useModalsStore";
 import { useEditPatientStore } from "@src/hooks/store/edit-patient/useEditPatientStore";
 import CreatePatientContainer from "../create-patient/CreatePatientContainer";
 import EditPatientContainer from "../edit-patient/EditPatientContainer";
+import loadingDots from "@src/assets/dots-loading.gif";
 
 const PatientsContainer = () => {
   const { data, getPatients, loading } = useGetPatients();
@@ -35,13 +36,19 @@ const PatientsContainer = () => {
 
   if (loading)
     return (
-      <div>
-        <div>Loading</div>
+      <div className="absolute top-0 left-0 right-0 bottom-0 m-auto h-24 w-24 md:h-36 md:w-36 text-center">
+        <img
+          className="object-contain w-full h-full"
+          src={loadingDots}
+          alt="loading-state"
+          loading="eager"
+        />
+        <p>Cargando...</p>
       </div>
     );
   return (
     <>
-      <PatientsList patients={patients} onClickEdit={onClickEdit} />;{}
+      <PatientsList patients={patients} onClickEdit={onClickEdit} />
       {modals.isCreateModalOpen && <CreatePatientContainer />}
       {modals.isEditModalOpen && <EditPatientContainer />}
     </>

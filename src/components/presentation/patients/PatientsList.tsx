@@ -8,12 +8,16 @@ type PatientsListProps = {
   onClickEdit: (patient: Patient) => void;
 };
 
+// FIXME: Se podria abstraer el efecto de animacion en un HOC
+
 const PatientsList = ({ patients, onClickEdit }: PatientsListProps) => {
   return (
-    <section className="mt-16 patient-list gap-16 place-items-center xl:max-w-[1280px] justify-center m-auto">
+    <section className="mt-16 patient-list gap-4 place-items-center xl:max-w-[1280px] justify-center m-auto">
       {patients?.map((patient) => (
         <React.Fragment key={patient.id}>
-          <PatientCard patient={patient} onClickEdit={onClickEdit} />
+          <div className="patient-list--card__animation">
+            <PatientCard patient={patient} onClickEdit={onClickEdit} />
+          </div>
         </React.Fragment>
       ))}
     </section>
